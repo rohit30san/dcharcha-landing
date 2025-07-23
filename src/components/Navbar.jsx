@@ -8,17 +8,14 @@ export default function Navbar() {
   const navItems = [
     { label: "Home", to: "hero" },
     { label: "Gallery", to: "gallery" },
+    { label: "How it Works?", to: "pillars" }, // renamed from "Pillars"
     { label: "Why Dcharcha", to: "why" },
-    { label: "Pillars", to: "pillars" },
-    { label: "Local Vision", to: "vision" },
-    { label: "Share Dream", to: "share" },
-    { label: "Get Started", to: "cta" },
+    { label: "Get Started", to: "share" }, // points to "share" section
   ];
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-white shadow-sm">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        {/* Replace text with logo */}
         <a href="#hero">
           <img
             src={logo}

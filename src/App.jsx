@@ -6,10 +6,7 @@ import LocalVision from './components/LocalVision';
 import CallToAction from './components/CallToAction';
 import PillarsSection from './components/PillarsSection';
 import Navbar from './components/Navbar';
-<<<<<<< HEAD
-=======
 import Footer from "./components/Footer";
->>>>>>> 0e4920fdeb1428b73d44df5c81394a58d0fdd4db
 
 function App() {
   return (
@@ -27,27 +24,17 @@ function App() {
         <section id="gallery" className="scroll-mt-20">
           <TransformationGallery />
         </section>
-        <section id="why" className="scroll-mt-20">
-          <WhyDcharcha />
-        </section>
         <section id="pillars" className="scroll-mt-20">
           <PillarsSection />
         </section>
-        <section id="vision" className="scroll-mt-20">
-          <LocalVision />
+        <section id="why" className="scroll-mt-20">
+          <WhyDcharcha />
         </section>
         <section id="share" className="scroll-mt-20">
           <ShareDream />
         </section>
-<<<<<<< HEAD
-        <section id="cta" className="scroll-mt-20">
-          <CallToAction />
-        </section>
-      </main>
-=======
       </main>
       <Footer />
->>>>>>> 0e4920fdeb1428b73d44df5c81394a58d0fdd4db
     </div>
   );
 }

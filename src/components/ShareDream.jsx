@@ -1,13 +1,14 @@
 export default function ShareDream() {
   return (
     <section id="share-dream" className="py-16 px-6 text-center">
-      <h2 className="text-3xl md:text-4xl font-bold mb-6">Share Your Dream</h2>
-      <p className="text-lg md:text-xl mb-10 max-w-2xl mx-auto">
+      <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">Share Your Dream</h2>
+      <p className="text-lg md:text-xl mb-10 max-w-2xl mx-auto text-gray-700">
         The Dcharcha app is your space to express your vision for your street, neighborhood, or city.
         From murals to better public spaces, your dream matters.
       </p>
 
-      <div className="flex flex-col md:flex-row justify-center items-center gap-8">
+      {/* App Store Buttons */}
+      <div className="flex flex-col md:flex-row justify-center items-center gap-8 mb-12">
         <div className="flex flex-col items-center gap-2">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
@@ -16,7 +17,6 @@ export default function ShareDream() {
           />
           <span className="text-sm text-gray-600">Coming Soon</span>
         </div>
-
         <div className="flex flex-col items-center gap-2">
           <img
             src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
@@ -25,6 +25,48 @@ export default function ShareDream() {
           />
           <span className="text-sm text-gray-600">Coming Soon</span>
         </div>
+      </div>
+
+      {/* Register for BETA */}
+      <div className="p-6 max-w-5xl mx-auto">
+        <h3 className="text-3xl md:text-4xl font-extrabold text-black mb-6">
+          🚀 Register for BETA Access
+        </h3>
+
+        <form
+          action="https://docs.google.com/forms/d/e/your-google-form-id/formResponse"
+          method="POST"
+          target="_blank"
+          className="flex flex-col md:flex-row items-center gap-4 justify-center flex-wrap"
+        >
+          <input
+            type="text"
+            name="entry.1234567890" // Replace with actual field ID
+            placeholder="Your Name"
+            required
+            className="w-full md:w-1/4 px-4 py-3 rounded-lg border border-gray-300 bg-white/20 backdrop-blur-md text-gray-900 shadow-sm focus:ring-2 focus:ring-indigo-400 focus:outline-none transition-all"
+          />
+          <input
+            type="email"
+            name="entry.2345678901" // Replace with actual field ID
+            placeholder="Email"
+            required
+            className="w-full md:w-1/4 px-4 py-3 rounded-lg border border-gray-300 bg-white/20 backdrop-blur-md text-gray-900 shadow-sm focus:ring-2 focus:ring-indigo-400 focus:outline-none transition-all"
+          />
+          <input
+            type="tel"
+            name="entry.3456789012" // Replace with actual field ID
+            placeholder="Phone Number"
+            required
+            className="w-full md:w-1/4 px-4 py-3 rounded-lg border border-gray-300 bg-white/20 backdrop-blur-md text-gray-900 shadow-sm focus:ring-2 focus:ring-indigo-400 focus:outline-none transition-all"
+          />
+          <button
+            type="submit"
+            className="px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg shadow transition-all"
+          >
+            Register
+          </button>
+        </form>
       </div>
     </section>
   );

@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useState, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { SparklesIcon } from "@heroicons/react/24/solid";
 import {
   ReactCompareSlider,
@@ -9,8 +9,47 @@ import {
 import before from "../assets/before1.png";
 import after from "../assets/after1.png";
 
+const slideTexts = [
+  {
+    title: (
+      <>
+        Civic Dreams Begin{" "}
+        <span className="bg-gradient-to-r from-indigo-600 to-fuchsia-500 text-transparent bg-clip-text">
+          With You
+        </span>
+      </>
+    ),
+    subtitle:
+      "Dcharcha is your space to imagine, share, and co-create the future of your neighborhood. Parks, pavements, policies — it all starts here.",
+  },
+  {
+    title: (
+      <>
+        <span className="bg-gradient-to-r from-green-600 to-teal-500 text-transparent bg-clip-text">
+          Register for Beta
+        </span>
+      </>
+    ),
+    subtitle:
+      "Be the first to shape civic change. Join our beta testers and help design your city's future.",
+  },
+  {
+    title: (
+      <>
+        <span className="bg-gradient-to-r from-yellow-600 to-pink-500 text-transparent bg-clip-text">
+          One Dream at a Time
+        </span>
+      </>
+    ),
+    subtitle:
+      "Every idea matters. Inspire transformation with your dream — big or small.",
+  },
+];
+
 export default function HeroSection() {
   const [isMobile, setIsMobile] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const intervalRef = useRef(null);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -19,21 +58,36 @@ export default function HeroSection() {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
+  const startAutoSlide = () => {
+    clearInterval(intervalRef.current);
+    intervalRef.current = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slideTexts.length);
+    }, 3000);
+  };
+
+  useEffect(() => {
+    startAutoSlide();
+    return () => clearInterval(intervalRef.current);
+  }, []);
+
+  const handleDotClick = (index) => {
+    setCurrentSlide(index);
+    startAutoSlide(); // restart timer on dot click
+  };
+
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center px-0 py-20 overflow-hidden isolate">
-      {/* Optional Background Shape */}
-      <div className="absolute inset-0 -z-10 pointer-events-none opacity-10">
-        {/* Add SVG or decorative bg here if needed */}
-      </div>
+    <section className="relative w-full min-h-screen flex items-center justify-center px-0 py-12 overflow-hidden isolate">
+      <div className="absolute inset-0 -z-10 pointer-events-none opacity-10" />
 
       <div className="w-full grid grid-cols-1 md:grid-cols-2 items-center">
+        {/* Left: Compare Slider */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
           className="w-full h-full flex justify-center items-center px-6"
         >
-          <div className="w-full max-w-2xl h-auto relative">
+          <div className="w-full max-w-3xl h-auto relative">
             {isMobile ? (
               <div className="relative w-full rounded-2xl overflow-hidden h-auto aspect-[16/9]">
                 <motion.img
@@ -99,60 +153,79 @@ export default function HeroSection() {
           </div>
         </motion.div>
 
-        {/* Right: Text Content */}
+        {/* Right: Auto-Sliding Text */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
-          className="text-center md:text-left px-6 sm:px-12"
+          className="text-center md:text-left px-6 sm:px-12 max-w-2xl"
         >
-          <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight tracking-tight text-gray-900">
-            Civic Dreams Begin{" "}
-            <span className="bg-gradient-to-r from-indigo-600 to-fuchsia-500 text-transparent bg-clip-text">
-              With You
-            </span>
-          </h1>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentSlide}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.5 }}
+            >
+              <h1 className="text-5xl sm:text-6xl font-extrabold leading-tight tracking-tight text-gray-900">
+                {slideTexts[currentSlide].title}
+              </h1>
+              <p className="mt-8 text-xl sm:text-2xl text-gray-800 font-medium max-w-xl">
+                {slideTexts[currentSlide].subtitle}
+              </p>
 
-          <p className="mt-6 text-lg sm:text-xl text-gray-800 font-medium max-w-xl">
-            Dcharcha is your space to imagine, share, and co-create the future
-            of your neighborhood. Parks, pavements, policies — it all starts
-            here.
-          </p>
+            {currentSlide === 1 && (
+              <div className="mt-8">
+                <button
+                  onClick={() => {
+                    const el = document.getElementById("share-dream");
+                    if (el) {
+                      el.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
+                  className="px-7 py-3 text-lg text-white bg-green-600 hover:bg-green-700 rounded-xl shadow transition"
+                >
+                  Register Now
+                </button>
+              </div>
+            )}
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Dots */}
+          <div className="mt-6 flex justify-center md:justify-start gap-3">
+            {slideTexts.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => handleDotClick(index)}
+                className={`w-4 h-4 rounded-full transition-colors duration-300 ${
+                  currentSlide === index
+                    ? "bg-indigo-600"
+                    : "bg-gray-300 hover:bg-gray-400"
+                }`}
+                aria-label={`Slide ${index + 1}`}
+              />
+            ))}
+          </div>
 
           {/* App Store Buttons */}
-          <div className="mt-8 flex gap-4 justify-center md:justify-start items-center">
+          <div className="mt-10 flex gap-6 justify-center md:justify-start items-center">
             <div className="flex flex-col items-center">
               <img
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/512px-Google_Play_Store_badge_EN.svg.png"
                 alt="Play Store Coming Soon"
-                className="w-40 h-auto"
+                className="w-44 h-auto"
               />
               <span className="text-sm mt-1 text-gray-600">Coming Soon</span>
             </div>
-
             <div className="flex flex-col items-center">
               <img
                 src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
                 alt="App Store Coming Soon"
-                className="w-36 h-auto"
+                className="w-40 h-auto"
               />
               <span className="text-sm mt-1 text-gray-600">Coming Soon</span>
-            </div>
-          </div>
-
-          {/* Metrics */}
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6 text-gray-700 font-medium text-sm sm:text-base">
-            <div>
-              <SparklesIcon className="w-6 h-6 text-[#195554] mb-2 mx-auto md:mx-0" />
-              2,300+ Dreams Shared
-            </div>
-            <div>
-              <SparklesIcon className="w-6 h-6 text-[#195554] mb-2 mx-auto md:mx-0" />
-              120+ Cities Engaged
-            </div>
-            <div>
-              <SparklesIcon className="w-6 h-6 text-[#195554] mb-2 mx-auto md:mx-0" />
-              98% Community Approval
             </div>
           </div>
         </motion.div>
