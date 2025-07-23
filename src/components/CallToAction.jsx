@@ -24,9 +24,7 @@ export default function CallToAction() {
         </div>
       </div>
 
-      <div className="mt-16 border-t border-gray-700 pt-6 text-center text-sm text-gray-400">
-        © {new Date().getFullYear()} Dcharcha. All rights reserved.
-      </div>
+      
     </footer>
   );
 }

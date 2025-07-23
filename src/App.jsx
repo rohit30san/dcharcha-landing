@@ -6,6 +6,10 @@ import LocalVision from './components/LocalVision';
 import CallToAction from './components/CallToAction';
 import PillarsSection from './components/PillarsSection';
 import Navbar from './components/Navbar';
+<<<<<<< HEAD
+=======
+import Footer from "./components/Footer";
+>>>>>>> 0e4920fdeb1428b73d44df5c81394a58d0fdd4db
 
 function App() {
   return (
@@ -35,10 +39,15 @@ function App() {
         <section id="share" className="scroll-mt-20">
           <ShareDream />
         </section>
+<<<<<<< HEAD
         <section id="cta" className="scroll-mt-20">
           <CallToAction />
         </section>
       </main>
+=======
+      </main>
+      <Footer />
+>>>>>>> 0e4920fdeb1428b73d44df5c81394a58d0fdd4db
     </div>
   );
 }

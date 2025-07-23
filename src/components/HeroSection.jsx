@@ -1,8 +1,24 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { SparklesIcon } from "@heroicons/react/24/solid";
-import phonepp from "../assets/phoneapp.png";
+import {
+  ReactCompareSlider,
+  ReactCompareSliderImage,
+} from "react-compare-slider";
+
+import before from "../assets/before1.png";
+import after from "../assets/after1.png";
 
 export default function HeroSection() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   return (
     <section className="relative w-full min-h-screen flex items-center justify-center px-0 py-20 overflow-hidden isolate">
       {/* Optional Background Shape */}
@@ -11,18 +27,76 @@ export default function HeroSection() {
       </div>
 
       <div className="w-full grid grid-cols-1 md:grid-cols-2 items-center">
-        {/* Left: Illustration */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
-          className="w-full h-full flex justify-start items-center"
+          className="w-full h-full flex justify-center items-center px-6"
         >
-          <img
-            src={phonepp}
-            alt="Phone Demo"
-            className="object-contain w-[90%] md:w-[85%] lg:w-[75%] xl:w-[65%] -ml-6 sm:ml-0"
-          />
+          <div className="w-full max-w-2xl h-auto relative">
+            {isMobile ? (
+              <div className="relative w-full rounded-2xl overflow-hidden h-auto aspect-[16/9]">
+                <motion.img
+                  key="before"
+                  src={before}
+                  alt="Before"
+                  initial={{ opacity: 1, scale: 1, filter: "brightness(1)" }}
+                  animate={{
+                    opacity: 0,
+                    scale: 1.05,
+                    filter: "brightness(0.8)",
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                    ease: "easeInOut",
+                  }}
+                  className="absolute top-0 left-0 w-full h-full object-cover rounded-2xl"
+                />
+                <motion.img
+                  key="after"
+                  src={after}
+                  alt="After"
+                  initial={{ opacity: 0, scale: 0.95, filter: "brightness(0.8)" }}
+                  animate={{
+                    opacity: 1,
+                    scale: 1,
+                    filter: "brightness(1)",
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                    ease: "easeInOut",
+                  }}
+                  className="absolute top-0 left-0 w-full h-full object-cover rounded-2xl"
+                />
+              </div>
+            ) : (
+              <ReactCompareSlider
+                itemOne={
+                  <ReactCompareSliderImage
+                    src={before}
+                    alt="Before"
+                    className="rounded-2xl"
+                  />
+                }
+                itemTwo={
+                  <ReactCompareSliderImage
+                    src={after}
+                    alt="After"
+                    className="rounded-2xl"
+                  />
+                }
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  borderRadius: "1rem",
+                }}
+              />
+            )}
+          </div>
         </motion.div>
 
         {/* Right: Text Content */}
@@ -40,8 +114,9 @@ export default function HeroSection() {
           </h1>
 
           <p className="mt-6 text-lg sm:text-xl text-gray-800 font-medium max-w-xl">
-            Dcharcha is your space to imagine, share, and co-create the future of your neighborhood.
-            Parks, pavements, policies — it all starts here.
+            Dcharcha is your space to imagine, share, and co-create the future
+            of your neighborhood. Parks, pavements, policies — it all starts
+            here.
           </p>
 
           {/* App Store Buttons */}
