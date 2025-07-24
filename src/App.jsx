@@ -2,11 +2,10 @@ import HeroSection from "./components/HeroSection";
 import TransformationGallery from "./components/TransformationGallery";
 import ShareDream from "./components/ShareDream";
 import WhyDcharcha from './components/WhyDcharcha';
-import LocalVision from './components/LocalVision';
-import CallToAction from './components/CallToAction';
 import PillarsSection from './components/PillarsSection';
 import Navbar from './components/Navbar';
 import Footer from "./components/Footer";
+import CivicRoles from "./components/CivicRoles.jsx";
 
 function App() {
   return (
@@ -26,6 +25,9 @@ function App() {
         </section>
         <section id="pillars" className="scroll-mt-20">
           <PillarsSection />
+        </section>
+        <section id="civic">
+          <CivicRoles />
         </section>
         <section id="why" className="scroll-mt-20">
           <WhyDcharcha />
