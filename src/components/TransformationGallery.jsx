@@ -1,24 +1,32 @@
 import React, { useEffect, useState } from "react";
+import before1 from "../assets/before6.png";
+import after1 from "../assets/after6.png";
+import before3 from "../assets/before3.png";
+import after3 from "../assets/after3.png";
+import before4 from "../assets/before4.png";
+import after4 from "../assets/after4.png";
+import before5 from "../assets/before5.png";
+import after5 from "../assets/after5.png";
 
 const transformations = [
   {
-    before: "https://images.unsplash.com/photo-1560185008-5bf9c1e76c61?auto=format&fit=crop&w=800&q=80",
-    after: "https://images.unsplash.com/photo-1613545325292-611b5fc44556?auto=format&fit=crop&w=800&q=80",
+    before: before1,
+    after: after1,
     label: "Urban Renewal",
   },
   {
-    before: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=800&q=80",
-    after: "https://images.unsplash.com/photo-1628890922256-8ad32f3ac86e?auto=format&fit=crop&w=800&q=80",
+    before: before3,
+    after: after3,
     label: "Community Mural",
   },
   {
-    before: "https://images.unsplash.com/photo-1573164713347-df1e9d5f35a7?auto=format&fit=crop&w=800&q=80",
-    after: "https://images.unsplash.com/photo-1618761041974-5a5030527b8b?auto=format&fit=crop&w=800&q=80",
+    before: before4,
+    after: after4,
     label: "Green Walkway",
   },
   {
-    before: "https://images.unsplash.com/photo-1613545325292-611b5fc44556?auto=format&fit=crop&w=800&q=80",
-    after: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=800&q=80",
+    before: before5,
+    after: after5,
     label: "Public Space Upgrade",
   },
 ];
@@ -37,7 +45,6 @@ export default function TransformationGallery() {
 
   return (
     <div className="py-16 px-4 md:px-12">
-      {/* Title Above Images */}
       <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-10 text-left leading-tight">
         ✨ Before → <span className="text-[#005555]">Dream World</span>
       </h2>
@@ -74,20 +81,22 @@ export default function TransformationGallery() {
         {/* Right Side Text */}
         <div className="flex-1 max-w-xl pt-3">
           <h3 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4 text-left leading-tight">
-            Transforming Spaces, <span className="text-[#005555]">One Dream at a Time</span>
+            Transforming Spaces,{" "}
+            <span className="text-[#005555]">One Dream at a Time</span>
           </h3>
           <p className="text-lg text-gray-700 leading-relaxed mb-4">
             Explore real transformations happening in public spaces around us.
-            From neglected paths to vibrant walkways, from empty walls to vibrant murals — 
-            Dcharcha showcases how collective imagination reshapes our surroundings.
-            Every before-and-after tells a story of progress, art, and shared dreams.
+            From neglected paths to vibrant walkways, from empty walls to
+            vibrant murals — Dcharcha showcases how collective imagination
+            reshapes our surroundings. Every before-and-after tells a story of
+            progress, art, and shared dreams.
           </p>
           <p className="text-lg text-gray-700 leading-relaxed">
-            These visuals reflect more than physical changes — they capture the spirit of a community-driven future. 
-            Join the movement and reimagine the world with Dcharcha. ✨
+            These visuals reflect more than physical changes — they capture the
+            spirit of a community-driven future. Join the movement and
+            reimagine the world with Dcharcha. ✨
           </p>
         </div>
-
       </div>
     </div>
   );

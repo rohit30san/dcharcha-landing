@@ -6,8 +6,8 @@ import {
   ReactCompareSliderImage,
 } from "react-compare-slider";
 
-import before from "../assets/before1.png";
-import after from "../assets/after1.png";
+import before from "../assets/before3.png";
+import after from "../assets/after3.png";
 
 const slideTexts = [
   {
