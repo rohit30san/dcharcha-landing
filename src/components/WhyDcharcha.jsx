@@ -1,20 +1,20 @@
-import { LightBulbIcon, UsersIcon, GlobeAltIcon } from '@heroicons/react/24/outline';
+import { SparklesIcon, UsersIcon, GlobeAltIcon } from '@heroicons/react/24/outline';
 
 const features = [
   {
-    title: 'Civic Dreaming',
-    icon: LightBulbIcon,
-    desc: 'Visualize bold futures for your city and spark public imagination.',
+    title: 'AI-powered visual storytelling',
+    icon: SparklesIcon,
+    desc: 'Transform ideas into compelling civic visuals using cutting-edge AI tools.',
   },
   {
-    title: 'Youth Voices',
+    title: 'Community-first planning',
     icon: UsersIcon,
-    desc: 'A platform built to amplify young ideas and grassroots creativity.',
+    desc: 'Empower residents to co-create solutions and drive participatory development.',
   },
   {
-    title: 'Local to Global',
+    title: 'Local impact with national relevance',
     icon: GlobeAltIcon,
-    desc: 'Connect local aspirations to global civic movements and actions.',
+    desc: 'Bridge hyperlocal dreams with broader movements to shape policy and dialogue.',
   },
 ];
 
