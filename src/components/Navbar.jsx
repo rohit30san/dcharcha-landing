@@ -9,8 +9,9 @@ export default function Navbar() {
     { label: "Home", to: "hero" },
     { label: "Gallery", to: "gallery" },
     { label: "How it Works?", to: "pillars" }, // renamed from "Pillars"
+    { label: "Impact", to: "civic" },
     { label: "Why Dcharcha", to: "why" },
-    { label: "Get Started", to: "share" }, // points to "share" section
+    { label: "Share Dream", to: "share" }, // points to "share" section
   ];
 
   return (

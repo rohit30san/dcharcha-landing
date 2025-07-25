@@ -42,7 +42,7 @@ const CivicRoles = () => {
   ];
 
   return (
-    <div className="py-12 px-6 md:px-16 rounded-xl">
+    <div className="py-20 px-6 md:px-16 rounded-xl">
       <div className="max-w-7xl mx-auto">
         <h1 className="text-4xl font-bold text-center text-gray-800 mb-10">
           Civic Change Starts With You
@@ -65,9 +65,12 @@ const CivicRoles = () => {
           <p className="text-2xl italic text-gray-700">
             Dcharcha gives you the power to reimagine and act—no matter who you are.
           </p>
-          <button className="mt-8 bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-full transition duration-300 shadow-md">
+          <a
+            href="#share-dream"
+            className="mt-8 inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-full transition duration-300 shadow-md"
+          >
             Join the Movement
-          </button>
+          </a>
         </div>
       </div>
     </div>

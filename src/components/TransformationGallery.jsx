@@ -44,7 +44,7 @@ export default function TransformationGallery() {
   }, []);
 
   return (
-    <div className="py-16 px-4 md:px-12">
+    <div className="py-22 px-4 md:px-12">
       <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-10 text-left leading-tight">
         ✨ Before → <span className="text-[#005555]">Dream World</span>
       </h2>
