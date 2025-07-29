@@ -29,9 +29,12 @@ export default function ShareDream() {
 
       {/* Register for BETA */}
       <div className="p-6 max-w-5xl mx-auto">
-        <h3 className="text-3xl md:text-4xl font-extrabold text-black mb-6">
+        <h3 className="text-3xl md:text-4xl font-extrabold text-black mb-2">
           🚀 Register for BETA Access
         </h3>
+        <p className="text-base md:text-lg text-gray-700 mb-6">
+          Sign up to be the first to try the Dcharcha app and help shape your city's story.
+        </p>
 
         <form
           action="https://docs.google.com/forms/d/e/your-google-form-id/formResponse"
@@ -42,29 +45,28 @@ export default function ShareDream() {
           <input
             type="text"
             name="entry.1234567890" // Replace with actual field ID
-            placeholder="Your Name"
+            placeholder="Full Name"
             required
-            className="w-full md:w-1/4 px-4 py-3 rounded-lg border border-gray-300 bg-white/20 backdrop-blur-md text-gray-900 shadow-sm focus:ring-2 focus:ring-indigo-400 focus:outline-none transition-all"
+            className="w-full md:w-1/4 px-4 py-3 rounded-lg border border-gray-300 bg-white/30 backdrop-blur-md text-gray-900 placeholder-gray-600 shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none transition-all"
           />
           <input
             type="email"
             name="entry.2345678901" // Replace with actual field ID
-            placeholder="Email"
+            placeholder="Email Address"
             required
-            className="w-full md:w-1/4 px-4 py-3 rounded-lg border border-gray-300 bg-white/20 backdrop-blur-md text-gray-900 shadow-sm focus:ring-2 focus:ring-indigo-400 focus:outline-none transition-all"
+            className="w-full md:w-1/4 px-4 py-3 rounded-lg border border-gray-300 bg-white/30 backdrop-blur-md text-gray-900 placeholder-gray-600 shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none transition-all"
           />
           <input
             type="tel"
             name="entry.3456789012" // Replace with actual field ID
-            placeholder="Phone Number"
-            required
-            className="w-full md:w-1/4 px-4 py-3 rounded-lg border border-gray-300 bg-white/20 backdrop-blur-md text-gray-900 shadow-sm focus:ring-2 focus:ring-indigo-400 focus:outline-none transition-all"
+            placeholder="Phone (Optional)"
+            className="w-full md:w-1/4 px-4 py-3 rounded-lg border border-gray-300 bg-white/30 backdrop-blur-md text-gray-900 placeholder-gray-600 shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none transition-all"
           />
           <button
             type="submit"
             className="px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg shadow transition-all"
           >
-            Register
+            Get Beta Invite
           </button>
         </form>
       </div>
