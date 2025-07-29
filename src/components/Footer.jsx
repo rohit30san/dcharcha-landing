@@ -1,12 +1,20 @@
 import React from "react";
 import { FaTwitter, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import logo from "../assets/Dcharcha_Logo-01.png";
+import termsPDF from "../assets/Terms_of_Service.pdf";
+import privacyPDF from "../assets/Privacy_Policy.pdf";
 
 const Footer = () => {
+  const scrollToSection = (id) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <footer className="bg-gray-900 text-white py-12 px-4">
       <div className="max-w-7xl mx-auto space-y-10 sm:space-y-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Brand Logo & Description */}
           <div>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 bg-white p-2 rounded-full shadow-md">
@@ -16,7 +24,6 @@ const Footer = () => {
                   className="w-full h-full object-contain"
                 />
               </div>
-
               <h3 className="text-xl font-bold">Dcharcha</h3>
             </div>
             <p className="text-gray-400 text-sm sm:text-base mb-4">
@@ -35,124 +42,58 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Platform */}
+          {/* Platform Links */}
           <div>
             <h4 className="text-lg font-semibold mb-4">Platform</h4>
             <ul className="space-y-2 text-sm text-gray-400">
-              <li>
-                <a
-                  href="#"
-                  className="hover:text-white transition-colors duration-200"
-                >
-                  Features
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="hover:text-white transition-colors duration-200"
-                >
-                  How It Works
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="hover:text-white transition-colors duration-200"
-                >
-                  Security
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="hover:text-white transition-colors duration-200"
-                >
-                  Privacy
-                </a>
-              </li>
+              {[
+                { label: "Home", id: "hero" },
+                { label: "Gallery", id: "gallery" },
+                { label: "Why Dcharcha", id: "why-dcharcha" },
+                { label: "Pillars", id: "pillars" },
+                { label: "Share Your Dream", id: "share-dream" },
+              ].map(({ label, id }) => (
+                <li key={id}>
+                  <button
+                    onClick={() => scrollToSection(id)}
+                    className="hover:text-white transition-colors duration-200"
+                  >
+                    {label}
+                  </button>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Resources */}
+          {/* Legal Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Resources</h4>
+            <h4 className="text-lg font-semibold mb-4">Legal</h4>
             <ul className="space-y-2 text-sm text-gray-400">
               <li>
                 <a
-                  href="#"
+                  href={termsPDF}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="hover:text-white transition-colors duration-200"
                 >
-                  Documentation
+                  Terms of Service
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
+                  href={privacyPDF}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="hover:text-white transition-colors duration-200"
                 >
-                  Help Center
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="hover:text-white transition-colors duration-200"
-                >
-                  Community
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="hover:text-white transition-colors duration-200"
-                >
-                  Blog
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Contact</h4>
-            <ul className="space-y-2 text-sm text-gray-400">
-              <li>
-                <a
-                  href="#"
-                  className="hover:text-white transition-colors duration-200"
-                >
-                  Support
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="hover:text-white transition-colors duration-200"
-                >
-                  Partnerships
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="hover:text-white transition-colors duration-200"
-                >
-                  Press
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="hover:text-white transition-colors duration-200"
-                >
-                  Careers
+                  Privacy Policy
                 </a>
               </li>
             </ul>
           </div>
         </div>
 
+        {/* Bottom line */}
         <div className="border-t border-gray-800 pt-6 text-center text-xs sm:text-sm text-gray-500">
           &copy; 2025 Dcharcha. All rights reserved.
         </div>
