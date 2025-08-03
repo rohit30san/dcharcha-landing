@@ -5,7 +5,7 @@ const path = require('path');
 require('dotenv').config();
 
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
-const KEYFILEPATH = path.join(__dirname, '../config/service-account.json');
+const KEYFILEPATH = path.resolve(process.env.GOOGLE_APPLICATION_CREDENTIALS);
 const SHEET_ID = process.env.SHEET_ID; // from .env
 
 const auth = new google.auth.GoogleAuth({
