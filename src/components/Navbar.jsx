@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+<<<<<<< HEAD
 import logo from "../assets/Dcharcha_Logo-01.png";
+=======
+import logo from "../assets/Dcharcha_Logo-01.webp";
+>>>>>>> 248aa60ac89899d9d1d81a90a70a1210b33d3a66
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);

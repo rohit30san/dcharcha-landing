@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+<<<<<<< HEAD
 import before1 from "../assets/before6.png";
 import after1 from "../assets/after6.png";
 import before3 from "../assets/before3.png";
@@ -7,6 +8,16 @@ import before4 from "../assets/before4.png";
 import after4 from "../assets/after4.png";
 import before5 from "../assets/before5.png";
 import after5 from "../assets/after5.png";
+=======
+import before1 from "../assets/before6.webp";
+import after1 from "../assets/after6.webp";
+import before3 from "../assets/before3.webp";
+import after3 from "../assets/after3.webp";
+import before4 from "../assets/before4.webp";
+import after4 from "../assets/after4.webp";
+import before5 from "../assets/before5.webp";
+import after5 from "../assets/after5.webp";
+>>>>>>> 248aa60ac89899d9d1d81a90a70a1210b33d3a66
 
 const transformations = [
   {

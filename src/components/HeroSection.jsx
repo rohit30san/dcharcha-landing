@@ -6,8 +6,13 @@ import {
   ReactCompareSliderImage,
 } from "react-compare-slider";
 
+<<<<<<< HEAD
 import before from "../assets/before3.png";
 import after from "../assets/after3.png";
+=======
+import before from "../assets/before3.webp";
+import after from "../assets/after3.webp";
+>>>>>>> 248aa60ac89899d9d1d81a90a70a1210b33d3a66
 
 const slideTexts = [
   {
