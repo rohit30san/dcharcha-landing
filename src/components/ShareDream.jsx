@@ -1,4 +1,42 @@
+import { useState } from "react";
+const backendURL = import.meta.env.VITE_BACKEND_URL;
+
 export default function ShareDream() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+  });
+
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await fetch(`${backendURL}/api/submit-form`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        setSubmitted(true);
+        setFormData({ name: "", email: "", phone: "" });
+      } else {
+        alert("Submission failed. Please try again.");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("An error occurred.");
+    }
+  };
+
   return (
     <section id="share-dream" className="py-16 px-6 text-center">
       <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">Share Your Dream</h2>
@@ -36,39 +74,47 @@ export default function ShareDream() {
           Sign up to be the first to try the Dcharcha app and help shape your city's story.
         </p>
 
-        <form
-          action="https://docs.google.com/forms/d/e/your-google-form-id/formResponse"
-          method="POST"
-          target="_blank"
-          className="flex flex-col md:flex-row items-center gap-4 justify-center flex-wrap"
-        >
-          <input
-            type="text"
-            name="entry.1234567890" // Replace with actual field ID
-            placeholder="Full Name"
-            required
-            className="w-full md:w-1/4 px-4 py-3 rounded-lg border border-gray-300 bg-white/30 backdrop-blur-md text-gray-900 placeholder-gray-600 shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none transition-all"
-          />
-          <input
-            type="email"
-            name="entry.2345678901" // Replace with actual field ID
-            placeholder="Email Address"
-            required
-            className="w-full md:w-1/4 px-4 py-3 rounded-lg border border-gray-300 bg-white/30 backdrop-blur-md text-gray-900 placeholder-gray-600 shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none transition-all"
-          />
-          <input
-            type="tel"
-            name="entry.3456789012" // Replace with actual field ID
-            placeholder="Phone (Optional)"
-            className="w-full md:w-1/4 px-4 py-3 rounded-lg border border-gray-300 bg-white/30 backdrop-blur-md text-gray-900 placeholder-gray-600 shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none transition-all"
-          />
-          <button
-            type="submit"
-            className="px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg shadow transition-all"
+        {!submitted ? (
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col md:flex-row items-center gap-4 justify-center flex-wrap"
           >
-            Get Beta Invite
-          </button>
-        </form>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Full Name"
+              required
+              className="w-full md:w-1/4 px-4 py-3 rounded-lg border border-gray-300 bg-white/30 backdrop-blur-md text-gray-900 placeholder-gray-600 shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none transition-all"
+            />
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Email Address"
+              required
+              className="w-full md:w-1/4 px-4 py-3 rounded-lg border border-gray-300 bg-white/30 backdrop-blur-md text-gray-900 placeholder-gray-600 shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none transition-all"
+            />
+            <input
+              type="tel"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              placeholder="Phone (Optional)"
+              className="w-full md:w-1/4 px-4 py-3 rounded-lg border border-gray-300 bg-white/30 backdrop-blur-md text-gray-900 placeholder-gray-600 shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none transition-all"
+            />
+            <button
+              type="submit"
+              className="px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-lg shadow transition-all"
+            >
+              Get Beta Invite
+            </button>
+          </form>
+        ) : (
+          <p className="text-green-700 font-semibold text-lg mt-4">Thanks! You’re on the list. 🎉</p>
+        )}
       </div>
     </section>
   );

@@ -23,11 +23,6 @@ export default function CallToAction() {
           </a>
         </div>
       </div>
-<<<<<<< HEAD
-
-      
-=======
->>>>>>> 248aa60ac89899d9d1d81a90a70a1210b33d3a66
     </footer>
   );
 }
