@@ -3,6 +3,7 @@ import { FaTwitter, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import logo from "../assets/Dcharcha_Logo-01.webp";
 import termsPDF from "../assets/Terms_of_Service.pdf";
 import privacyPDF from "../assets/Privacy_Policy.pdf";
+import { FaWhatsapp } from "react-icons/fa";
 
 const Footer = () => {
   const scrollToSection = (id) => {
@@ -97,14 +98,19 @@ const Footer = () => {
           {/* Optional - Contact or Newsletter section */}
           <div>
             <h4 className="text-lg font-semibold mb-4">Contact</h4>
-            <p className="text-sm text-gray-400 mb-2">dcharcha123@gmail.com</p>
-            <p className="text-sm text-gray-400">+91 9908996747</p>
+            <p className="text-sm text-gray-400 mb-2">info@dcharcha.com</p>
+            <p className="text-sm text-gray-400 flex items-center gap-2">
+  <FaWhatsapp className="text-green-500 text-xl" />
+  +91- 9908996747
+</p>
+
           </div>
         </div>
 
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 pt-6 text-center text-xs sm:text-sm text-gray-500">
-          &copy; 2025 Dcharcha. All rights reserved.
+          &copy; 2025 Majji Digital Solutions Pvt. Ltd. |{" "}
+          <a href="www.dcharcha.com">www.dcharcha.com</a> All rights reserved.
         </div>
       </div>
     </footer>
