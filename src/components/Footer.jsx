@@ -110,7 +110,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 pt-6 text-center text-xs sm:text-sm text-gray-500">
           &copy; 2025 Majji Digital Solutions Pvt. Ltd. |{" "}
-          <a href="www.dcharcha.com">www.dcharcha.com</a> All rights reserved.
+          <a href="www.dcharcha.com">Dcharcha</a> All rights reserved.
         </div>
       </div>
     </footer>

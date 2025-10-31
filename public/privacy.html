@@ -1,197 +1,286 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>D'charcha Privacy Policy</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dcharcha – Privacy Policy</title>
   <style>
-    :root{--bg:#ffffff;--text:#111827;--muted:#6b7280;--accent:#0ea5a4;--maxw:900px}
-    body{font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;margin:0;padding:24px}
-    .wrap{max-width:var(--maxw);margin:0 auto;padding:24px}
-    h1,h2,h3{color:var(--text);margin-top:1.2rem}
-    h1{font-size:1.75rem}
-    p{margin:0.6rem 0}
-    .muted{color:var(--muted)}
-    nav{background:#f8fafc;padding:12px;border-radius:8px;margin-bottom:18px}
-    nav a{margin-right:12px;color:var(--accent);text-decoration:none;font-weight:600}
-    section{padding:12px 0;border-top:1px solid #eef2f7}
-    ul{margin:0.4rem 0 0.8rem 1.2rem}
-    .small{font-size:0.95rem;color:var(--muted)}
-    footer{margin-top:28px;padding-top:12px;border-top:1px solid #eef2f7}
-    .actions{margin-top:18px}
-    .btn{display:inline-block;padding:10px 14px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none}
-    @media (max-width:600px){:root{--maxw:100%}body{padding:16px}.wrap{padding:12px}}
+    /* ---------- THEME ---------- */
+    :root {
+      --primary: #0ea5a4;
+      --secondary: #195554;
+      --text: #1e293b;
+      --muted: #64748b;
+      --bg-gradient: linear-gradient(135deg, #a7f3d0, #ffffff 40%, #195554 90%);
+      --card-bg: rgba(255, 255, 255, 0.96);
+      --radius: 20px;
+      --shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      --maxw: 960px;
+    }
+
+    /* ---------- GLOBAL ---------- */
+    body {
+      margin: 0;
+      font-family: "Inter", "Segoe UI", Roboto, sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      padding: 60px 16px;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 50px 45px;
+      backdrop-filter: blur(8px);
+      animation: fadeIn 0.8s ease both;
+    }
+
+    h1, h2, h3 {
+      color: var(--secondary);
+      font-weight: 700;
+      margin-top: 1.4rem;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      border-left: 4px solid var(--primary);
+      padding-left: 12px;
+      margin-bottom: 0.8rem;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      color: var(--text);
+    }
+
+    p {
+      margin: 0.6rem 0;
+    }
+
+    ul {
+      margin: 0.6rem 0 1rem 1.4rem;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .muted { color: var(--muted); }
+    .small { font-size: 0.95rem; color: var(--muted); }
+
+    /* ---------- NAVIGATION ---------- */
+    nav {
+      background: rgba(14, 165, 164, 0.1);
+      padding: 14px 18px;
+      border-radius: 14px;
+      margin: 28px 0 40px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    nav a {
+      color: var(--secondary);
+      font-weight: 600;
+      font-size: 0.95rem;
+      position: relative;
+      transition: color 0.2s ease;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: -3px;
+      left: 0;
+      background: var(--primary);
+      transition: width 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* ---------- SECTIONS ---------- */
+    section {
+      padding: 20px 0;
+      border-top: 1px solid #e2e8f0;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      margin-top: 50px;
+      padding-top: 25px;
+      border-top: 1px solid #e5e7eb;
+      text-align: center;
+      animation: fadeIn 1s ease both;
+    }
+
+    footer p {
+      margin: 6px 0;
+    }
+
+    /* ---------- ANIMATIONS ---------- */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(25px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 640px) {
+      body { padding: 30px 10px; }
+      .container { padding: 28px 20px; }
+      h1 { font-size: 1.9rem; }
+      nav { flex-direction: column; align-items: center; }
+    }
   </style>
 </head>
+
 <body>
-  <div class="wrap">
+  <div class="container">
     <header>
-      <h1>🔐 D'charcha Privacy Policy</h1>
-      <p class="small">Last updated: <strong>30 October 2025</strong></p>
+      <h1>Dcharcha Privacy Policy</h1>
+      <p class="small" style="text-align:center;">Last updated: <strong>30 October 2025</strong></p>
+
       <nav>
         <a href="#introduction">Introduction</a>
         <a href="#scope">Scope</a>
-        <a href="#data-collected">What We Collect</a>
-        <a href="#your-rights">Your Rights</a>
+        <a href="#data">Data Collection</a>
+        <a href="#usage">Data Use</a>
+        <a href="#ai">AI Content</a>
+        <a href="#sharing">Disclosure</a>
+        <a href="#rights">User Rights</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
 
     <section id="introduction">
       <h2>1. Introduction</h2>
-      <p>Welcome to <strong>D'charcha</strong>, a civic‑tech platform for visual storytelling, civic reporting, and community engagement. We are committed to protecting your privacy and handling your personal data responsibly and transparently.</p>
-      <p>This Privacy Policy explains how <strong>D'charcha Technologies Private Limited</strong> ("we", "us", "our") collects, uses, shares, and protects information when you use the D'charcha mobile application, website, or related services (the "Platform"). By using the Platform you consent to this policy and our <a href="/terms" target="_blank">Terms of Service</a>. If you do not agree, please do not use the Platform.</p>
+      <p>This Privacy Policy describes how <strong>Majji Digital Solutions Pvt. Ltd.</strong> (“Dcharcha”, “we”, “us”, or “our”) collects, uses, stores, and protects your personal information when you access our mobile application, website, or any related digital service (collectively referred to as the “Platform”).</p>
+      <p>We are committed to maintaining the confidentiality and security of your information in accordance with applicable data protection laws in India, including the Digital Personal Data Protection Act, 2023.</p>
     </section>
 
     <section id="scope">
       <h2>2. Scope</h2>
-      <p>This policy applies to:</p>
-      <ul>
-        <li>All users of the D'charcha mobile app and website;</li>
-        <li>All civic submissions, AI-generated content, and community interactions;</li>
-        <li>Registered and guest users, including citizens, civic partners, and government collaborators.</li>
-      </ul>
+      <p>This Privacy Policy applies to all users who access or use the Dcharcha Platform, including citizens, civic partners, and collaborators. By using our services, you acknowledge that you have read and understood this Policy.</p>
     </section>
 
-    <section id="data-collected">
-      <h2>3. What We Collect</h2>
-      <p>We collect information to provide and improve the Platform. Categories include:</p>
+    <section id="data">
+      <h2>3. Information We Collect</h2>
       <h3>3.1 Personal Information</h3>
       <ul>
-        <li>Name, email address, phone number (if provided)</li>
-        <li>Profile photo or display name (optional)</li>
-        <li>Location data (GPS or approximate)</li>
-        <li>Device & network information (IP address, device ID, OS, push tokens)</li>
+        <li>Full name, email address, and phone number (optional)</li>
+        <li>Profile information such as display name or photo</li>
+        <li>Device and technical information (IP address, operating system, app version)</li>
       </ul>
 
-      <h3>3.2 Civic & AI Content</h3>
+      <h3>3.2 User Submissions</h3>
       <ul>
-        <li>Uploaded photos, videos, captions, and issue tags</li>
-        <li>AI-generated visuals and transformations</li>
-        <li>Location metadata associated with submissions</li>
-        <li>Comments, reactions, and reports</li>
+        <li>Reports, images, or videos uploaded through the Platform</li>
+        <li>Location metadata for accurate civic issue mapping</li>
       </ul>
 
-      <h3>3.3 Usage Data</h3>
+      <h3>3.3 Analytics Data</h3>
       <ul>
-        <li>App interactions, session duration, feature usage</li>
-        <li>Submission counts, engagement metrics, referral activity</li>
-        <li>Device event logs and diagnostics</li>
+        <li>Usage patterns, session duration, and app interactions</li>
+        <li>Error logs and diagnostic information</li>
       </ul>
-
-      <h3>3.4 Children's Data</h3>
-      <p>Users under 18 must obtain parental or guardian consent. We may collect year of birth to verify eligibility.</p>
     </section>
 
-    <section id="how-we-use">
+    <section id="usage">
       <h2>4. How We Use Your Information</h2>
-      <p>We use information to:</p>
+      <p>Your data may be used for the following purposes:</p>
       <ul>
-        <li>Enable civic reporting, visualization, and collaboration</li>
-        <li>Generate anonymized dashboards, heatmaps, and civic insights</li>
-        <li>Improve user experience and app performance</li>
-        <li>Send important updates, alerts, and responses</li>
-        <li>Moderate content and ensure compliance</li>
-        <li>Support research and policy design for public benefit</li>
+        <li>To provide and enhance Dcharcha’s features and user experience</li>
+        <li>To process and analyze civic issue reports</li>
+        <li>To ensure platform security, performance, and accuracy</li>
+        <li>To communicate with users regarding updates or civic engagement reports</li>
+        <li>To conduct analytics and research in an aggregated or anonymized manner</li>
       </ul>
     </section>
 
-    <section id="ai-content">
-      <h2>5. AI‑Generated Content</h2>
-      <p>AI outputs are illustrative and not official government plans. Such outputs may be stored, labeled, and analyzed for civic insight. Do not treat AI-generated visuals as factual or authoritative.</p>
+    <section id="ai">
+      <h2>5. AI-Generated Content</h2>
+      <p>Dcharcha utilizes AI technologies to visualize and analyze civic issues. These AI-generated outputs are intended for informational and representational purposes only and do not constitute verified government data or endorsements.</p>
     </section>
 
     <section id="sharing">
-      <h2>6. Data Sharing & Disclosure</h2>
-      <p>We <strong>do not sell</strong> personal data. We may share data in limited circumstances:</p>
+      <h2>6. Data Sharing and Disclosure</h2>
+      <p>We do not sell or trade user data. Your information may be shared only under the following circumstances:</p>
       <ul>
-        <li>With government or civic bodies to resolve reported issues;</li>
-        <li>With trusted third‑party service providers (e.g., OpenAI, Firebase, Google Maps) who are contractually bound;</li>
-        <li>With law enforcement or regulators when legally required;</li>
-        <li>In aggregated/anonymized form for research, analytics, or public reporting.</li>
+        <li>With government or civic authorities for verified issue resolution</li>
+        <li>With trusted third-party service providers (such as Google Maps, Firebase, or OpenAI) for technical operations, subject to confidentiality agreements</li>
+        <li>When required by law or governmental request, in compliance with applicable regulations</li>
       </ul>
     </section>
 
-    <section id="storage-security">
-      <h2>7. Data Storage & Security</h2>
-      <p>We store data on secure cloud infrastructure located in India. We use encryption in transit and at rest, access controls, and regular security assessments. Access to personal data is restricted to authorized personnel.</p>
-      <p class="small">IP addresses are used only for approximate location and moderation and are not retained for personal identification.</p>
-    </section>
-
-    <section id="permissions">
-      <h2>8. Device Permissions</h2>
-      <p>The app may request permissions for:</p>
+    <section id="rights">
+      <h2>7. Your Rights and Choices</h2>
+      <p>You have the right to:</p>
       <ul>
-        <li><strong>Camera</strong> – to capture or upload civic issues;</li>
-        <li><strong>Location</strong> – to tag submissions and improve mapping accuracy;</li>
-        <li><strong>Storage</strong> – to upload or save media;</li>
-        <li><strong>Microphone</strong> – only if voice features are enabled.</li>
+        <li>Access, correct, or delete your personal information</li>
+        <li>Withdraw your consent for data processing at any time</li>
+        <li>Request information on how your data is used or shared</li>
       </ul>
-      <p>Permissions are optional and can be managed via device settings.</p>
+      <p>Requests to exercise these rights can be sent to <a href="mailto:info@dcharcha.com">info@dcharcha.com</a>.</p>
     </section>
 
-    <section id="cookies">
-      <h2>9. Cookies & Tracking</h2>
-      <p>We use limited <strong>session cookies</strong> on the web portal for navigation and performance. Cookies do not store personal data and expire after each session.</p>
-    </section>
-
-    <section id="your-rights">
-      <h2>10. Your Rights</h2>
-      <p>Under applicable law you may:</p>
-      <ul>
-        <li>Access the personal data we hold about you;</li>
-        <li>Correct or update inaccurate information;</li>
-        <li>Request deletion of your account and personal data;</li>
-        <li>Withdraw consent for processing;</li>
-        <li>Request a copy of your data in a readable format.</li>
-      </ul>
-      <p>To exercise these rights, contact <a href="mailto:support@dcharcha.in">support@dcharcha.in</a> or use the in‑app settings.</p>
+    <section id="security">
+      <h2>8. Data Security</h2>
+      <p>We employ administrative, technical, and physical safeguards to protect your information against unauthorized access, alteration, disclosure, or destruction. While we strive to ensure complete data security, no system can guarantee absolute protection.</p>
     </section>
 
     <section id="retention">
-      <h2>11. Data Retention</h2>
-      <p>We retain personal data while your account is active and as needed for legal compliance, dispute resolution, and fraud prevention. Aggregated and anonymized data may be retained indefinitely for research and civic analytics.</p>
-      <p>Upon a deletion request, we will erase or anonymize personal data within <strong>30 working days</strong>, subject to legal exceptions.</p>
+      <h2>9. Data Retention</h2>
+      <p>Your data will be retained only for as long as necessary to fulfill the purposes outlined in this Policy or as required by applicable law. After that period, it will be securely deleted or anonymized.</p>
     </section>
 
-    <section id="compliance">
-      <h2>12. Compliance & Legal Obligations</h2>
-      <p>We comply with Indian laws including the Digital Personal Data Protection Act, 2023, the Information Technology Act, 2000, and related rules. We may disclose data to comply with legal requests, court orders, or to protect public safety.</p>
-    </section>
-
-    <section id="grievance">
-      <h2>13. Grievance Redressal</h2>
-      <p>If you have concerns about data handling, contact our Grievance Officer:</p>
-      <p>
-        <strong>Grievance Officer – D'charcha</strong><br>
-        Email: <a href="mailto:grievance@dcharcha.in">grievance@dcharcha.in</a><br>
-        Address: 30‑1‑14, South Jail Road, Dabagardens, Visakhapatnam, Andhra Pradesh – 530020, India
-      </p>
-      <p>We aim to resolve privacy-related grievances within <strong>15 working days</strong>.</p>
-    </section>
-
-    <section id="policy-updates">
-      <h2>14. Policy Updates</h2>
-      <p>We may update this policy to reflect legal or operational changes. Revised versions will be posted on the Platform with an updated "Last Updated" date. Continued use after changes constitutes acceptance.</p>
+    <section id="policy-changes">
+      <h2>10. Updates to this Privacy Policy</h2>
+      <p>We may update this Privacy Policy periodically to reflect legal, technical, or operational changes. The revised version will be posted on our website with the updated date at the top. Continued use of our Platform after such updates constitutes acceptance of the revised Policy.</p>
     </section>
 
     <section id="contact">
-      <h2>15. Contact Us</h2>
-      <p>For questions or privacy inquiries:</p>
-      <p>
-        Email: <a href="mailto:support@dcharcha.in">support@dcharcha.in</a><br>
-        Website: <a href="https://www.dcharcha.in" target="_blank">www.dcharcha.in</a>
-      </p>
+      <h2>11. Contact Information</h2>
+      <p>If you have any questions, concerns, or complaints regarding this Privacy Policy or our data handling practices, please reach out to us using the details below:</p>
+      <p><strong>Email:</strong> <a href="mailto:info@dcharcha.com">info@dcharcha.com</a></p>
+      <p><strong>WhatsApp:</strong> <a href="https://wa.me/919908996747" target="_blank">+91-9908996747</a></p>
+      <p><strong>Address:</strong> 30-1-14, South Jail Road, Dabagardens, Visakhapatnam, Andhra Pradesh – 530020, India</p>
     </section>
 
     <footer>
-      <p class="muted">D'charcha respects your privacy. We collect only what is necessary, store it securely, and use it transparently. Your control over your data is important to us.</p>  
-      <p class="small">© 2025 Majji Digital Solutions Pvt. Ltd. | www.dcharcha.com All rights reserved.</p>
-      <div class="actions">
-        <a class="btn" href="/terms" target="_blank">Read Terms of Service</a>
-        <a class="btn" style="background:#334155;margin-left:8px" href="/contact" target="_blank">Contact Support</a>
-      </div>
-     </footer>
+      <p class="muted">Dcharcha upholds privacy as a civic right — we handle every piece of data with transparency and accountability.</p>
+      <p class="small">&copy; 2025 Majji Digital Solutions Pvt. Ltd. | <a href="https://www.dcharcha.com" target="_blank">www.dcharcha.com</a> | All rights reserved.</p>
+    </footer>
   </div>
 </body>
 </html>
