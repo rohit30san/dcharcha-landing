@@ -73,7 +73,7 @@ const Footer = () => {
             <ul className="space-y-3 text-sm text-gray-400">
               <li>
                 <a
-                  href={termsPDF}
+                  href="/terms.html"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors duration-200"
@@ -83,7 +83,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href={privacyPDF}
+                  href="/privacy.html"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors duration-200"
